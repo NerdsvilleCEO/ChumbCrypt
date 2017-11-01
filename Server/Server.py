@@ -17,29 +17,29 @@ KeyID    = None
 
 def ListenForKey(addr, port, maxRequests):
 
-	RSA      = None
-	Name     = None
-	Email    = None
-	ClientID = None
-	CanRun   = True
+    RSA      = None
+    Name     = None
+    Email    = None
+    ClientID = None
+    CanRun   = True
 
-	if port != 0:
-		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		s.bind((addr, port)) # Bind port to socket.
-		s.listen(maxRequests)
+    if port != 0:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((addr, port)) # Bind port to socket.
+        s.listen(maxRequests)
 
-		print('Connected: ' + addr + ':' + str(port))
-		while CanRun == True:
-			f = open('icepted.txt', 'aw+')
+        print('Connected: ' + addr + ':' + str(port))
+        while CanRun == True:
+            f = open('icepted.txt', 'aw+')
 
-			f.write(str(s.listen(maxRequests)))
-			conn, addr = s.accept()
-			f.close()
-		print('Goodbye.')
-		s.close()
+            f.write(str(s.listen(maxRequests)))
+            conn, addr = s.accept()
+            f.close()
+        print('Goodbye.')
+        s.close()
 
-	else:
-		print('ERR: Unable to connect!')
+    else:
+        print('ERR: Unable to connect!')
 
 def rsync():
     process[] = subprocess.Popen([cmd], shell = True,
